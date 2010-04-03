@@ -18,6 +18,8 @@
 		276156DC1060C08C00FEF11C /* SIMBL.m in Sources */ = {isa = PBXBuildFile; fileRef = E0AF789609B3031900F50FE7 /* SIMBL.m */; };
 		276156DF1060C09900FEF11C /* SIMBLPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = E0AF789909B3031900F50FE7 /* SIMBLPlugin.m */; };
 		27D59F5610791EE100424BBD /* NSAlert_SIMBL.m in Sources */ = {isa = PBXBuildFile; fileRef = E0AF789409B3031900F50FE7 /* NSAlert_SIMBL.m */; };
+		D6EC084C1167CD5E005804D7 /* SUStandardVersionComparator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EC083E1167CBA0005804D7 /* SUStandardVersionComparator.m */; };
+		D6EC08591167CE30005804D7 /* SUStandardVersionComparator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EC083E1167CBA0005804D7 /* SUStandardVersionComparator.m */; };
 		E04B83EF104E73D80001E0E3 /* SIMBL.sdef in Rez */ = {isa = PBXBuildFile; fileRef = E04B83EE104E73D80001E0E3 /* SIMBL.sdef */; };
 		E0C2C2FE104F376500553034 /* NSAlert_SIMBL.m in Sources */ = {isa = PBXBuildFile; fileRef = E0AF789409B3031900F50FE7 /* NSAlert_SIMBL.m */; };
 		E0C2C2FF104F376600553034 /* SIMBL.m in Sources */ = {isa = PBXBuildFile; fileRef = E0AF789609B3031900F50FE7 /* SIMBL.m */; };
@@ -61,6 +63,9 @@
 		276144D9105F523C00F906F6 /* SIMBLAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMBLAgent.m; sourceTree = "<group>"; };
 		27614521105F55D500F906F6 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = /System/Library/Frameworks/ScriptingBridge.framework; sourceTree = "<absolute>"; };
 		8D5B49B6048680CD000E48DA /* SIMBL.osax */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SIMBL.osax; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6EC083D1167CBA0005804D7 /* SUVersionComparisonProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUVersionComparisonProtocol.h; sourceTree = "<group>"; };
+		D6EC083E1167CBA0005804D7 /* SUStandardVersionComparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUStandardVersionComparator.m; sourceTree = "<group>"; };
+		D6EC083F1167CBA0005804D7 /* SUStandardVersionComparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUStandardVersionComparator.h; sourceTree = "<group>"; };
 		E043030209B300D6000FD3C5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E04B83EE104E73D80001E0E3 /* SIMBL.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.sdef; path = SIMBL.sdef; sourceTree = "<group>"; };
 		E0AF789209B3031900F50FE7 /* DTMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTMacros.h; path = src/DTMacros.h; sourceTree = SOURCE_ROOT; };
@@ -162,6 +167,9 @@
 		E0AF789109B3031900F50FE7 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				D6EC083D1167CBA0005804D7 /* SUVersionComparisonProtocol.h */,
+				D6EC083E1167CBA0005804D7 /* SUStandardVersionComparator.m */,
+				D6EC083F1167CBA0005804D7 /* SUStandardVersionComparator.h */,
 				E0AF789209B3031900F50FE7 /* DTMacros.h */,
 				E0AF789309B3031900F50FE7 /* NSAlert_SIMBL.h */,
 				E0AF789409B3031900F50FE7 /* NSAlert_SIMBL.m */,
@@ -293,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6EC08591167CE30005804D7 /* SUStandardVersionComparator.m in Sources */,
 				276144F6105F531D00F906F6 /* SIMBLAgent.m in Sources */,
 				276156DC1060C08C00FEF11C /* SIMBL.m in Sources */,
 				276156DF1060C09900FEF11C /* SIMBLPlugin.m in Sources */,
@@ -305,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0C2C2FE104F376500553034 /* NSAlert_SIMBL.m in Sources */,
+				D6EC084C1167CD5E005804D7 /* SUStandardVersionComparator.m in Sources */,
 				E0C2C2FF104F376600553034 /* SIMBL.m in Sources */,
 				E0C2C300104F376700553034 /* SIMBLPlugin.m in Sources */,
 			);

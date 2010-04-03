@@ -8,6 +8,7 @@
 #import "SIMBL.h"
 #import "SIMBLPlugin.h"
 #import "NSAlert_SIMBL.h"
+#import "SUStandardVersionComparator.h"
 
 #import <objc/objc-class.h>
 
@@ -231,18 +232,16 @@ OSErr InjectEventHandler(const AppleEvent *ev, AppleEvent *reply, long refcon)
 		if (missingFramework)
 			continue;
 		
-		int appVersion = [[_appBundle _dt_bundleVersion] intValue];
+		NSString* appVersion = [_appBundle _dt_bundleVersion];
 		
-		int minVersion = 0;
-		NSNumber* number;
-		if ((number = [targetAppProperties objectForKey:SIMBLMinBundleVersion]))
-			minVersion = [number intValue];
+		NSString* minVersion = [targetAppProperties objectForKey:SIMBLMinBundleVersion];
+		NSString* maxVersion = [targetAppProperties objectForKey:SIMBLMaxBundleVersion];
+		
+		SUStandardVersionComparator* comparator = [SUStandardVersionComparator defaultComparator];
 			
-		int maxVersion = 0;
-		if ((number = [targetAppProperties objectForKey:SIMBLMaxBundleVersion]))
-			maxVersion = [number intValue];
-		
-		if ((maxVersion && appVersion > maxVersion) || (minVersion && appVersion < minVersion))
+		SIMBLLogDebug(@"checking version: app=%@ must be in range %@ - %@", appVersion, minVersion, maxVersion);
+		if ((maxVersion && [comparator compareVersion:appVersion toVersion:maxVersion]==NSOrderedDescending) || 
+			(minVersion && [comparator compareVersion:appVersion toVersion:minVersion]==NSOrderedAscending))
 		{
 			[NSAlert errorAlert:NSLocalizedStringFromTableInBundle(@"Error", SIMBLStringTable, DTOwnerBundle, @"Error alert primary message") withDetails:NSLocalizedStringFromTableInBundle(@"%@ %@ (v%@) has not been tested with the plugin %@ %@ (v%@). As a precaution, it has not been loaded. Please contact the plugin developer for further information.", SIMBLStringTable, DTOwnerBundle, @"Error alert details, substitute application and plugin version strings"), [_appBundle _dt_name], [_appBundle _dt_version], [_appBundle _dt_bundleVersion], [_bundle _dt_name], [_bundle _dt_version], [_bundle _dt_bundleVersion]];
 			continue;
